@@ -86,3 +86,44 @@ dpi-obhod/
 Системный подход позволил создать изолированное, отказоустойчивое и простое в использовании решение, которое не нарушает работу системы и обеспечивает доступ к важным ресурсам.
 
 Кейс выполнен в рамках обучения САС-101
+
+---
+
+## 🔐 Альтернативный способ: WireGuard для Android
+
+В дополнение к SOCKS5-прокси, можно использовать **WireGuard** — современный VPN-протокол, который обеспечивает защищённое соединение и может использоваться для обхода блокировок.
+
+### 📌 Что такое WireGuard
+
+WireGuard — это простой, быстрый и безопасный VPN-протокол, который работает на уровне ядра и не требует прав root.
+
+### 📱 Графический интерфейс для Android
+
+WireGuard имеет официальный клиент для Android с графическим интерфейсом.
+
+**Ссылка:** [WireGuard Android на GitHub](https://git.zx2c4.com/wireguard-android)
+
+### 🛠️ Сборка из исходников
+
+```bash
+git clone --recurse-submodules https://git.zx2c4.com/wireguard-android
+cd wireguard-android
+./gradlew assembleRelease
+implementation 'com.wireguard.android:tunnel:$wireguardTunnelVersion'
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+    coreLibraryDesugaringEnabled = true
+}
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.3"
+}
+🌍 Перевод
+Помочь с переводом приложения можно на платформе перевода WireGuard.
+
+🔥 Как это связано с обходом DPI
+SOCKS5-прокси	WireGuard
+Работает на уровне приложений	Работает на уровне ядра
+Требует настройки браузеров	Требует установки VPN-клиента
+Подходит для выборочного обхода	Подходит для полного туннелирования
+Выбор инструмента зависит от задачи: SOCKS5 — для точечного обхода, WireGuard — для полного защищённого соединения.
