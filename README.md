@@ -33,6 +33,7 @@
 - 🧠 [Оптимизация траекторий в ИИ](./ai-trajectory-optimization.md)
 - 🔎 [Elasticsearch — поиск и аналитика](./tools-and-results.md#elasticsearch)
 - 🔐 [WireGuard как альтернатива DPI-обходу](./09-dpi-obhod-case/README.md#альтернативный-способ-wireguard-для-android)
+- 🧠 [PyCDP — автоматизация браузера через Chrome DevTools Protocol](./09-dpi-obhod-case/README.md#автоматизация-обхода-через-pycdp-chrome-devtools-protocol)
 - 📊 [Инструменты и результаты](./tools-and-results.md)
 - 📚 [Подсказки преподавателей](./teachers-tips.md)
 
@@ -47,4 +48,4 @@
 ---
 
 *Репозиторий автоматически обновляется через GitHub Actions.*  
-🔄 **Последнее обновление: 2026-06-26 18:27:28
+🔄 **Последнее обновление:** 26.06.2026
