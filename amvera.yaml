@@ -1,0 +1,8 @@
+meta:
+  environment: python
+  toolchain: pip
+  engine: python3-11
+build:
+  requirements: fish_bot/requirements.txt
+run:
+  command: python fish_bot/bot.py
