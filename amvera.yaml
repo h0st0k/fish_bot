@@ -1,12 +1,13 @@
+---
 meta:
   environment: python
-  toolchain: pip
-  engine: python3-11
+  toolchain:
+    name: pip
+    version: 3.11
 build:
-  requirements: fish_bot/requirements.txt
+  requirementsPath: fish_bot/requirements.txt
+  useCache: false
 run:
+  persistenceMount: /data
   command: python fish_bot/bot.py
-  persistence: []
-  networks:
-    - port: 8080
-      type: http
+  containerPort: 80
