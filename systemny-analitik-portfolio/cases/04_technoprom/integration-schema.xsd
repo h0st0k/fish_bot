@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://w3.org"
+           targetNamespace="http://technoprom.ru"
+           xmlns:tns="http://technoprom.ru"
+           elementFormDefault="qualified">
+
+    <!-- Корневой элемент: Заявка на отгрузку промышленного насоса -->
+    <xs:element name="OrderShipmentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrderId" type="xs:long"/>
+                <xs:element name="ShipmentDate" type="xs:date"/>
+                <xs:element name="PumpDetails">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Model" type="xs:string"/>
+                            <xs:element name="SerialNumber" type="xs:string"/>
+                            <xs:element name="WeightKg" type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DestinationAddress" type="xs:string"/>
+                <xs:element name="Priority">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="STANDARD"/>
+                            <xs:enumeration value="URGENT"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

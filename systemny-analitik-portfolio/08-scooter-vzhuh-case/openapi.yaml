@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Вжух Кикшеринг API
+  description: Спецификация методов управления сессиями аренды самокатов.
+  version: 1.0.0
+paths:
+  /api/v1/rides/{ride_id}/end:
+    post:
+      summary: Завершение сессии аренды самоката
+      description: Фиксирует финальную геопозицию самоката, проверяет зону парковки, рассчитывает стоимость и закрывает заказ.
+      parameters:
+        - name: ride_id
+          in: path
+          required: true
+          description: Уникальный идентификатор сессии аренды
+          schema:
+            type: string
+            format: uuid
+            example: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - scooter_id
+                - latitude
+                - longitude
+                - battery_level
+              properties:
+                scooter_id:
+                  type: string
+                  format: uuid
+                  example: "7c9e6679-7425-40de-944b-e07fc1f90ae7"
+                latitude:
+                  type: number
+                  format: float
+                  description: Широта финальной точки парковки
+                  example: 59.934280
+                longitude:
+                  type: number
+                  format: float
+                  description: Долгота финальной точки парковки
+                  example: 30.335098
+                battery_level:
+                  type: integer
+                  minimum: 0
+                  maximum: 100
+                  description: Оставшийся заряд батареи в %
+                  example: 42
+      responses:
+        '200':
+          description: Аренда успешно завершена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ride_id:
+                    type: string
+                    format: uuid
+                  status:
+                    type: string
+                    example: "completed"
+                  duration_minutes:
+                    type: integer
+                    example: 25
+                  total_cost:
+                    type: number
+                    format: float
+                    example: 175.50
+                  currency:
+                    type: string
+                    example: "RUB"
+        '400':
+          description: Некорректный формат входных данных (ошибка валидации)
+        '422':
+          description: Бизнес-ошибка (например, самокат находится вне разрешенной зоны парковки)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                    example: "OUT_OF_PARKING_ZONE"
+                  message:
+                    type: string
+                    example: "Завершение аренды невозможно. Самокат находится вне синей зоны парковки."
+        '502':
+          description: Ошибка внешнего сервиса (не удалось списать средства через эквайринг)

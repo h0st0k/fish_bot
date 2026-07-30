@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h0st0k — Системный аналитик</title>
+    <style>
+        body {
+            background-color: #0a0f0a;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .terminal {
+            max-width: 850px;
+            width: 100%;
+            border: 2px solid #00ff41;
+            padding: 30px;
+            background-color: #0a120a;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            border-radius: 8px;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #00ff41;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .prompt {
+            color: #00ff41;
+            font-weight: bold;
+        }
+        .green {
+            color: #00ff41;
+        }
+        .dim {
+            color: #2a6b3a;
+        }
+        a {
+            color: #00ff41;
+            text-decoration: none;
+            border-bottom: 1px solid #00ff41;
+        }
+        a:hover {
+            color: #00ff99;
+            border-bottom: 1px solid #00ff99;
+        }
+        .matrix {
+            color: #00ff41;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .blink-fast {
+            animation: blink 0.5s step-end infinite;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #00ff41;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="matrix">[SYSTEM] ████████████████████ 100%</div>
+        <div class="matrix">[TRACE] ACTIVE</div>
+
+        <h1>🔺 ACCESS GRANTED</h1>
+        <p><span class="prompt">></span> <span class="green">SYSTEM ANALYST // DATA ARCHAEOLOGIST</span></p>
+
+        <hr>
+
+        <div class="section">
+            <p><span class="prompt">></span> [PROFILE] <span class="green">h0st0k</span></p>
+            <p><span class="prompt">></span> [STATUS] <span class="green">ONLINE</span></p>
+            <p><span class="prompt">></span> [NODE] <span class="green">TERMINAL v2.0</span></p>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <p><span class="prompt">></span> «Данные — это фрагменты древних свитков.<br>
+            <span class="prompt">></span> Аналитик — тот, кто умеет их расшифровать.»</p>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <p><span class="prompt">></span> 📂 <a href="README.md">Портфолио</a></p>
+            <p><span class="prompt"></span>📁 <a href="projects/system-analysis/">Кейсы (9)</a></p>
+            <p><span class="prompt">></span> 🗺️ <a href="https://github.com/h0st0k/systemny-analitik-portfolio">GitHub</a></p>
+            <p><span class="prompt">></span> 💬 <a href="https://t.me/h0st0k">Telegram</a></p>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <p><span class="prompt">></span> ⚡ Девиз:</p>
+            <p><span class="prompt">></span> «Порядок там, где есть анализ.<br>
+            <span class="prompt">></span> Анализ там, где есть система.<br>
+            <span class="prompt">></span> Система там, где есть я.»</p>
+        </div>
+
+        <hr>
+
+        <div style="display: flex; gap: 20px; font-size: 24px; margin-top: 15px;">
+            <span>𓃥</span>
+            <span>𓂀</span>
+            <span>𓋴</span>
+            <span style="margin-left: auto;" class="blink-fast">█</span>
+        </div>
+
+        <div class="matrix" style="margin-top: 10px;">
+            [READY] h0st0k ONLINE <span class="cursor"></span>
+        </div>
+    </div>
+</body>
+</html>
