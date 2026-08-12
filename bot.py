@@ -100,3 +100,4 @@ except Exception as e:
 finally:
     driver.quit()
     print("[+] Браузер закрыт.", flush=True)
+# test push
