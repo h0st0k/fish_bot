@@ -36,9 +36,7 @@ async def start_webserver():
     print("Вебхук-приемник успешно запущен на порту 8080...")
 
 async def main():
-    # Запускаем веб-сервер отдельной асинхронной задачей, чтобы он не блокировал поллинг
     asyncio.create_task(start_webserver())
-    
     print("Бот успешно запущен в режиме polling...")
     await dp.start_polling(bot)
 
