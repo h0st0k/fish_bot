@@ -56,3 +56,4 @@
 - 🧠 [Trio CDP — автоматизация браузера через Trio](./09-dpi-obhod-case/README.md#trio-cdp-автоматизация-браузера-через-trio)
 >>>>>>> Stashed changes
 # Тест вебхука Amvera-Telegram
+# Update 2026
