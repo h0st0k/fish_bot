@@ -1,0 +1,12 @@
+venv/
+.venv/
+*.zip
+*.log
+*.enc
+screenshots/
+docs/
+exports/
+0*-*/
+systemny-analitik-portfolio/
+secret*.txt
+amvera.yaml
