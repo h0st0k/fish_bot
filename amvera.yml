@@ -7,3 +7,4 @@ build:
   requirementsPath: fish_bot/requirements.txt
 run:
   command: python3 fish_bot/bot.py
+  containerPort: 8080
