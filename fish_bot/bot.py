@@ -8,6 +8,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
+# Твой точный проверенный ID
 USER_CHAT_ID = 8929572598
 
 async def github_webhook(request):
