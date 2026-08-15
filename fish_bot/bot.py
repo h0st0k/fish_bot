@@ -8,10 +8,8 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# Ваш проверенный Telegram ID
 USER_CHAT_ID = 8267281287
 
-# Обработчик уведомлений от GitHub вебхука
 async def github_webhook(request):
     try:
         data = await request.json()
@@ -28,16 +26,20 @@ async def github_webhook(request):
 async def cmd_start(message: types.Message):
     await message.answer(f"Привет, {message.from_user.full_name}! Бот успешно принимает вебхуки от GitHub.")
 
-async def main():
-    # Настраиваем веб-сервер aiohttp на порт 8080 для Amvera
+async def start_webserver():
     app = web.Application()
     app.router.add_post('/webhook', github_webhook)
     runner = web.AppRunner(app)
     await runner.setup()
     site = web.TCPSite(runner, '0.0.0.0', 8080)
-    asyncio.create_task(site.start())
+    await site.start()
+    print("Вебхук-приемник успешно запущен на порту 8080...")
+
+async def main():
+    # Запускаем веб-сервер отдельной асинхронной задачей, чтобы он не блокировал поллинг
+    asyncio.create_task(start_webserver())
     
-    print("Бот и вебхук-приемник успешно запущены...")
+    print("Бот успешно запущен в режиме polling...")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
